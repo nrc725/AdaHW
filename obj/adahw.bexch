@@ -1,0 +1,19 @@
+[GENERATED OBJECT FILE]
+b__adahw.o
+[PROJECT FILES]
+C:\Users\fletcherg\Documents\GitHub\AdaHW\adahw.gpr
+20171012143504
+[BOUND OBJECT FILES]
+C:\Users\fletcherg\Documents\GitHub\AdaHW\obj\adahw.o
+[GENERATED SOURCE FILES]
+b__adahw.ads
+b__adahw.adb
+b__adahw.ali
+[RESULTING OPTIONS]
+-LC:\Users\fletcherg\Documents\GitHub\AdaHW\obj\
+-LC:\Users\fletcherg\Documents\GitHub\AdaHW\obj\
+-LC:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2017/lib/gcc/i686-pc-mingw32/6.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

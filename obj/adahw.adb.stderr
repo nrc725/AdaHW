@@ -1,1 +1,1 @@
-adahw.adb:19:16: object "n" cannot be used before end of its declaration
+adahw.adb:86:04: missing "begin" for procedure "Output" at line 84

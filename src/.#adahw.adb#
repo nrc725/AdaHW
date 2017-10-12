@@ -82,7 +82,8 @@ procedure Adahw is
    end CalcProb;
 
    procedure Output is
-   --Outputs
+      --Outputs
+   begin
    Put("P(D | Pos1) = ");
    Put(test1pp);
    New_Line(1);
@@ -107,6 +108,6 @@ procedure Adahw is
 
 begin
 
-   null;
+  return string;
 
 end Adahw;
