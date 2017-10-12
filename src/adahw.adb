@@ -11,7 +11,7 @@ procedure Adahw is
    --Declare an integer for the number of records. First input.
    n, id, sick, test1, test2 : Integer;
    --Declare array to hold the test totals.
-   totals: array (1..4) of Integer;
+   type Totals: array (1..4) of Integer;
    --Declare array for output.
    probs: array (1..4) of Float;
 begin
@@ -24,10 +24,25 @@ begin
       Get(test2);
       if sick = 1 then
          --Increase Positive test totals
-         if test1
+         if test1 = 1 then
+            --Increase Positive Test 1
+
+         end if;
+         if test2 = 1 then
+            --Increase Positive Test 2
+
+         end if;
       else
          --Increase Negative test totals
-      end loop;
+         if test1 = 0 then
+            --Increase Neagtive Test 1
+
+         end if;
+         if test2 = 0 then
+            --Increase Neagtive Test 2
+
+         end if;
+      end if;
    end loop;
    --Function to calculate and output probabilities.
 
