@@ -5,17 +5,18 @@
 --  Author: Greg Fletcher, Jason Fazio, Nick Currie
 --
 -------------------------------------------------------------------------
-with Ada.Text_IO, Ada.Integer_Text_IO;
-use  Ada.Text_IO, Ada.Integer_Text_IO;
+with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO;
+use  Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO;
 procedure Adahw is
    --Declare an integer for the number of records.
-   n, id, sick, test1, test2, pos1total, neg1total, pos1sick, neg1health,
+   n, id, sick, test1, test2: Integer;
+   pos1total, neg1total, pos1sick, neg1health,
    pos2total, neg2total, pos2sick, neg2health: Integer := 0;
    test1pp, test1np, test2pp, test2np: Float;
 begin
    --For loop to get patient data input and insert into an array.
    Get(n);
-   for N in n loop
+   for N in 0..n loop
       Get(id);
       Get(sick);
       Get(test1);
@@ -51,10 +52,10 @@ begin
       end if;
    end loop;
    --Function to calculate and output probabilities.
-   test1pp := pos1sick/pos1total;
-   test1np := neg1health/neg1total;
-   test2pp := pos2sick/pos2total;
-   test2np := neg1health/neg2total;
+   test1pp := Float(pos1sick/pos1total);
+   test1np := Float(neg1health/neg1total);
+   test2pp := Float(pos2sick/pos2total);
+   test2np := Float(neg1health/neg2total);
 
    --Outputs
    Put("P(D | Pos1) = ");
