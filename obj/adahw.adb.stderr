@@ -1,0 +1,53 @@
+adahw.adb:18:13: object "n" cannot be used before end of its declaration
+adahw.adb:54:23: expected type "Standard.Float"
+adahw.adb:54:23: found type "Standard.Integer"
+adahw.adb:55:25: expected type "Standard.Float"
+adahw.adb:55:25: found type "Standard.Integer"
+adahw.adb:56:23: expected type "Standard.Float"
+adahw.adb:56:23: found type "Standard.Integer"
+adahw.adb:57:25: expected type "Standard.Float"
+adahw.adb:57:25: found type "Standard.Integer"
+adahw.adb:61:04: no candidate interpretations match the actuals:
+adahw.adb:61:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:76, instance at a-inteio.ads:18
+adahw.adb:61:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:60, instance at a-inteio.ads:18
+adahw.adb:61:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:241
+adahw.adb:61:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:207
+adahw.adb:61:04: possible missing instantiation of Text_IO.Float_IO
+adahw.adb:61:08: expected type "Standard.Integer"
+adahw.adb:61:08: found type "Standard.Float"
+adahw.adb:61:08:   ==> in call to "Put" at a-tiinio.ads:66, instance at a-inteio.ads:18
+adahw.adb:61:08:   ==> in call to "Put" at a-textio.ads:242
+adahw.adb:61:08:   ==> in call to "Put" at a-textio.ads:208
+adahw.adb:64:04: no candidate interpretations match the actuals:
+adahw.adb:64:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:76, instance at a-inteio.ads:18
+adahw.adb:64:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:60, instance at a-inteio.ads:18
+adahw.adb:64:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:241
+adahw.adb:64:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:207
+adahw.adb:64:04: possible missing instantiation of Text_IO.Float_IO
+adahw.adb:64:08: expected type "Standard.Integer"
+adahw.adb:64:08: found type "Standard.Float"
+adahw.adb:64:08:   ==> in call to "Put" at a-tiinio.ads:66, instance at a-inteio.ads:18
+adahw.adb:64:08:   ==> in call to "Put" at a-textio.ads:242
+adahw.adb:64:08:   ==> in call to "Put" at a-textio.ads:208
+adahw.adb:67:04: no candidate interpretations match the actuals:
+adahw.adb:67:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:76, instance at a-inteio.ads:18
+adahw.adb:67:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:60, instance at a-inteio.ads:18
+adahw.adb:67:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:241
+adahw.adb:67:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:207
+adahw.adb:67:04: possible missing instantiation of Text_IO.Float_IO
+adahw.adb:67:08: expected type "Standard.Integer"
+adahw.adb:67:08: found type "Standard.Float"
+adahw.adb:67:08:   ==> in call to "Put" at a-tiinio.ads:66, instance at a-inteio.ads:18
+adahw.adb:67:08:   ==> in call to "Put" at a-textio.ads:242
+adahw.adb:67:08:   ==> in call to "Put" at a-textio.ads:208
+adahw.adb:70:04: no candidate interpretations match the actuals:
+adahw.adb:70:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:76, instance at a-inteio.ads:18
+adahw.adb:70:04: missing argument for parameter "Item" in call to "Put" declared at a-tiinio.ads:60, instance at a-inteio.ads:18
+adahw.adb:70:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:241
+adahw.adb:70:04: missing argument for parameter "Item" in call to "Put" declared at a-textio.ads:207
+adahw.adb:70:04: possible missing instantiation of Text_IO.Float_IO
+adahw.adb:70:08: expected type "Standard.Integer"
+adahw.adb:70:08: found type "Standard.Float"
+adahw.adb:70:08:   ==> in call to "Put" at a-tiinio.ads:66, instance at a-inteio.ads:18
+adahw.adb:70:08:   ==> in call to "Put" at a-textio.ads:242
+adahw.adb:70:08:   ==> in call to "Put" at a-textio.ads:208
