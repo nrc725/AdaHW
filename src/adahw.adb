@@ -17,13 +17,24 @@ procedure Adahw is
    pos2total, neg2total, pos2sick, neg2health: Integer := 0;
    test1pp, test1np, test2pp, test2np: Float;
 
+
+   procedure SizeRecords is
+      begin
+      Get(n);
+         declare
+            records : Patient_Records (1..n);
+         begin
+         null;
+         end;
+   end SizeRecords;
+
+
    procedure GetInput is
       --Temp holder to process whitespace
       sp : Character;
       p: Patient;
       --For loop to get patient data input and insert into an array.
       begin
-      Get(n);
       while i < n loop
          Get(p.id);
          Get(sp);
@@ -34,14 +45,15 @@ procedure Adahw is
          Get(p.test2);
          records(i) := p;
          i := i + 1;
-      end loop;
+         end loop;
    end GetInput;
 
    procedure CalcTotals is
+      s, t1, t2: Integer;
       --Calculate total positive and negative tests for sick and health
       begin
-     for I in records loop
-      if records(I).test1 = 1 then
+      for I of records loop
+      if t1 = 1 then
          --Increase Positive test totals
          pos1total := pos1total + 1;
          if records(I).sick = 1 then
@@ -82,7 +94,8 @@ procedure Adahw is
    end CalcProb;
 
    procedure Output is
-   --Outputs
+      --Outputs
+   begin
    Put("P(D | Pos1) = ");
    Put(test1pp);
    New_Line(1);
@@ -102,11 +115,11 @@ procedure Adahw is
    else
          Put("Neither test is better.");
       end if;
-   end procedure;
+   end Output;
 
 
 begin
 
-   null;
 
+null;
 end Adahw;
