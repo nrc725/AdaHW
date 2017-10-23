@@ -103,9 +103,13 @@ procedure Adahw is
 
 begin
    get(numberofpatients);
-      GetInput;
-      CalcTotals;
-      CalcProb;
-      Output;
+   declare
+      records : patientrecords (1..numberofpatients, 1..4);
+      begin
+      GetInput(records);
+               CalcTotals(records);
+               CalcProb;
+               Output;
+      end;
 null;
 end Adahw;

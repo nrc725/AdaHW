@@ -9,7 +9,6 @@ project _Auto is
       for Driver ("ada") use "gcc";
       for Language_Kind ("ada") use "unit_based";
       for Dependency_Kind ("ada") use "ALI_File";
-      for Object_File_Suffix ("wsdl") use "-";
       for Object_File_Suffix ("html") use "-";
       for Object_File_Suffix ("xml") use "-";
       for Object_File_Suffix ("matlab") use "-";
@@ -47,7 +46,6 @@ project _Auto is
       for Body_Suffix ("ada") use ".adb";
       for Dot_Replacement use "-";
       for Casing use "lowercase";
-      for Spec_Suffix ("wsdl") use ".wsdl";
       for Spec_Suffix ("html") use ".html";
       for Body_Suffix ("xml") use ".xml";
       for Body_Suffix ("matlab") use ".m";

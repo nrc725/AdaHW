@@ -1,12 +1,1 @@
-adahw.adb:15:13: unconstrained subtype not allowed (need initialization)
-adahw.adb:15:13: provide initial value or explicit array bounds
-adahw.adb:59:21: expected type "Standard.Integer"
-adahw.adb:59:21: found type "Patient" defined at line 11
-adahw.adb:65:21: expected type "Standard.Integer"
-adahw.adb:65:21: found type "Patient" defined at line 11
-adahw.adb:70:18: expected type "Standard.Integer"
-adahw.adb:70:18: found type "Patient" defined at line 11
-adahw.adb:73:21: expected type "Standard.Integer"
-adahw.adb:73:21: found type "Patient" defined at line 11
-adahw.adb:79:21: expected type "Standard.Integer"
-adahw.adb:79:21: found type "Patient" defined at line 11
+adahw.adb:14:33: warning: "numberofpatients" may be referenced before it has a value
