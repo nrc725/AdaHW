@@ -5,62 +5,66 @@
 --  Author: Greg Fletcher, Jason Fazio, Nick Currie
 --
 -------------------------------------------------------------------------
-with Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO;
-use  Ada.Text_IO, Ada.Integer_Text_IO, Ada.Float_Text_IO;
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
+use Ada.Integer_Text_IO;
+with Ada.Float_Text_IO; use Ada.Float_Text_IO;
 procedure Adahw is
    pos1total, neg1total, pos1sick, neg1health, pos2total, neg2total, pos2sick, neg2health: Integer := 0;
    type patientRecords is array (Positive range <>, Positive range <>) of Integer;
    i, numberofpatients: Integer;
    test1pp, test1np, test2pp, test2np: Float;
-
-   procedure GetInput (records: in out patientRecords) is
-      --Temp holder to process whitespace
-      --sp : Character;
+   results : String(1..150);
+   cr : Character := ASCII.CR;
+   function GetInput (records: in out patientRecords) return patientRecords is
       --For loop to get patient data input and insert into an array.
    begin
       i := 1;
       while i <= numberofpatients loop
-         Put("enter patient number: ");
-         Get(records(i, 1));
-         Put("enter sick value: ");
-         Get(records(i, 2));
-         Put("enter test 1: ");
-         Get(records(i, 3));
-         Put("enter test 2: ");
-         Get(records(i, 4));
+         Ada.Integer_Text_IO.Get(records(i, 1));
+         Ada.Integer_Text_IO.Get(records(i, 2));
+         Ada.Integer_Text_IO.Get(records(i, 3));
+         Ada.Integer_Text_IO.Get(records(i, 4));
+         Put(records(i, 1));
+         Put(records(i, 2));
+         New_Line(1);
          i := i + 1;
-         Put(i);
-         end loop;
+      end loop;
+      return records;
    end GetInput;
 
    procedure CalcTotals (records: in patientRecords) is
       --Calculate total positive and negative tests for sick and health
       begin
-      for I of records loop
-      if records(I, 3) = 1 then
+      for i of records loop
+         Put(i,1);
+         --Put(I,2);
+         --Put(I,3);
+         --Put(I,4);
+      if records(i, 3) = 1 then
          --Increase Positive test totals
          pos1total := pos1total + 1;
-         if records(I, 2) = 1 then
+         if records(i, 2) = 1 then
             --Increase Positive Test 1
             pos1sick := pos1sick + 1;
          end if;
       else
          --Increase Negative test totals
-         if records(I, 2) = 0 then
+         if records(i, 2) = 0 then
             --Increase Neagtive Test 1
            neg1health := neg1health + 1;
          end if;
       end if;
-      if records(I, 4) = 1 then
+      if records(i, 4) = 1 then
          --Increase Positive test totals
          pos2total := pos2total + 1;
-         if records(I, 2) = 1 then
+         if records(i, 2) = 1 then
             --Increase Positive Test 1
             pos2sick := pos2sick + 1;
          end if;
       else
          --Increase Negative test totals
-         if records(I, 2) = 0 then
+         if records(i, 2) = 0 then
             --Increase Neagtive Test 1
            neg2health := neg2health + 1;
          end if;
@@ -93,41 +97,34 @@ procedure Adahw is
          end if;
    end CalcProb;
 
-   procedure Output is
+   function Output return String is
       --Outputs
    begin
-   Put("P(D | Pos1) = ");
-   Put(test1pp);
-   New_Line(1);
-   Put("P(D | Pos2) = ");
-   Put(test1np);
-   New_Line(1);
-   Put("P(H | Neg1) = ");
-   Put(test2pp);
-   New_Line(1);
-   Put("P(H | Neg2) = ");
-   Put(test2np);
-   New_Line(1);
    if test1pp > test2pp and test1np > test2np then
-      Put("Test 1 is better.");
+         results := "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
+           Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
+           cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Test 1 is better.";
    elsif test1pp < test2pp and test1np < test2np then
-         Put("Test 2 is better.");
+         results := "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
+           Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
+           cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Test 2 is better.";
    else
-         Put("Neither test is better.");
-      end if;
+         results := "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
+           Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
+           cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Neither test is better.";
+   end if;
+   return results;
    end Output;
 
 
 begin
-   Put("enter number of records: ");
    Get(numberofpatients);
    declare
       records : patientrecords (1..numberofpatients, 1..4);
       begin
-      GetInput(records);
-      CalcTotals(records);
+      CalcTotals(GetInput(records));
       CalcProb;
-      Output;
-      end;
-null;
+      Put(Output);
+      Put(results);
+   end;
 end Adahw;
