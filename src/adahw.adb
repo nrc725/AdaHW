@@ -14,7 +14,7 @@ procedure Adahw is
    type patientRecords is array (Positive range <>, Positive range <>) of Integer;
    i, numberofpatients: Integer;
    test1pp, test1np, test2pp, test2np: Float;
-   results : String(1..150);
+   --results : String(1..150);
    cr : Character := ASCII.CR;
    function GetInput (records: in out patientRecords) return patientRecords is
       --For loop to get patient data input and insert into an array.
@@ -25,9 +25,6 @@ procedure Adahw is
          Ada.Integer_Text_IO.Get(records(i, 2));
          Ada.Integer_Text_IO.Get(records(i, 3));
          Ada.Integer_Text_IO.Get(records(i, 4));
-         Put(records(i, 1));
-         Put(records(i, 2));
-         New_Line(1);
          i := i + 1;
       end loop;
       return records;
@@ -35,12 +32,14 @@ procedure Adahw is
 
    procedure CalcTotals (records: in patientRecords) is
       --Calculate total positive and negative tests for sick and health
-      begin
-      for i of records loop
-         Put(i,1);
-         --Put(I,2);
-         --Put(I,3);
-         --Put(I,4);
+   begin
+      while i > 1 loop
+         i := i - 1;
+        Put(records(i, 1));
+         Put(records(i, 2));
+         Put(records(i, 3));
+         Put(records(i, 4));
+         New_Line(1);
       if records(i, 3) = 1 then
          --Increase Positive test totals
          pos1total := pos1total + 1;
@@ -68,7 +67,7 @@ procedure Adahw is
             --Increase Neagtive Test 1
            neg2health := neg2health + 1;
          end if;
-      end if;
+         end if;
      end loop;
    end CalcTotals;
 
@@ -101,19 +100,18 @@ procedure Adahw is
       --Outputs
    begin
    if test1pp > test2pp and test1np > test2np then
-         results := "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
+         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
            Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
            cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Test 1 is better.";
    elsif test1pp < test2pp and test1np < test2np then
-         results := "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
+         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
            Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
            cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Test 2 is better.";
    else
-         results := "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
+         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
            Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
            cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Neither test is better.";
    end if;
-   return results;
    end Output;
 
 
@@ -124,7 +122,11 @@ begin
       begin
       CalcTotals(GetInput(records));
       CalcProb;
-      Put(Output);
-      Put(results);
+      declare
+         result: String := Output;
+      begin
+         null;
+      end;
+      Put(result);
    end;
 end Adahw;
