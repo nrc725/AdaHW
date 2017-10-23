@@ -15,19 +15,21 @@ procedure Adahw is
 
    procedure GetInput (records: in out patientRecords) is
       --Temp holder to process whitespace
-      sp : Character;
+      --sp : Character;
       --For loop to get patient data input and insert into an array.
    begin
-      i := 0;
-      while i < numberofpatients loop
+      i := 1;
+      while i <= numberofpatients loop
+         Put("enter patient number: ");
          Get(records(i, 1));
-         Get(sp);
+         Put("enter sick value: ");
          Get(records(i, 2));
-         Get(sp);
+         Put("enter test 1: ");
          Get(records(i, 3));
-         Get(sp);
+         Put("enter test 2: ");
          Get(records(i, 4));
          i := i + 1;
+         Put(i);
          end loop;
    end GetInput;
 
@@ -68,11 +70,27 @@ procedure Adahw is
 
    procedure CalcProb is
       --Function to calculate and output probabilities.
-      begin
-   test1pp := Float(pos1sick/pos1total);
-   test1np := Float(neg1health/neg1total);
-   test2pp := Float(pos2sick/pos2total);
-   test2np := Float(neg1health/neg2total);
+   begin
+      if pos1total = 0 then
+        test1pp := Float(pos1sick);
+      else
+         test1pp := Float(pos1sick/pos1total);
+      end if;
+      if neg1total = 0 then
+        test1np := Float(neg1health);
+      else
+         test1np := Float(neg1health/neg1total);
+         end if;
+      if pos2total = 0 then
+        test2pp := Float(pos2sick);
+      else
+         test2pp := Float(pos2sick/pos2total);
+         end if;
+      if neg2total = 0 then
+        test2np := Float(neg2health);
+      else
+         test2np := Float(neg2health/neg2total);
+         end if;
    end CalcProb;
 
    procedure Output is
@@ -101,7 +119,8 @@ procedure Adahw is
 
 
 begin
-   get(numberofpatients);
+   Put("enter number of records: ");
+   Get(numberofpatients);
    declare
       records : patientrecords (1..numberofpatients, 1..4);
       begin
