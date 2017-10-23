@@ -11,10 +11,9 @@ procedure Adahw is
    pos1total, neg1total, pos1sick, neg1health, pos2total, neg2total, pos2sick, neg2health: Integer := 0;
    type patientRecords is array (Positive range <>, Positive range <>) of Integer;
    i, numberofpatients: Integer;
-   records : patientrecords (1..numberofpatients, 1..4);
    test1pp, test1np, test2pp, test2np: Float;
 
-   procedure GetInput is
+   procedure GetInput (records: in out patientRecords) is
       --Temp holder to process whitespace
       sp : Character;
       --For loop to get patient data input and insert into an array.
@@ -32,7 +31,7 @@ procedure Adahw is
          end loop;
    end GetInput;
 
-   procedure CalcTotals is
+   procedure CalcTotals (records: in patientRecords) is
       --Calculate total positive and negative tests for sick and health
       begin
       for I of records loop
@@ -103,9 +102,13 @@ procedure Adahw is
 
 begin
    get(numberofpatients);
-      GetInput;
-      CalcTotals;
+   declare
+      records : patientrecords (1..numberofpatients, 1..4);
+      begin
+      GetInput(records);
+      CalcTotals(records);
       CalcProb;
       Output;
+      end;
 null;
 end Adahw;
