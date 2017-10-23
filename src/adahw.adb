@@ -120,8 +120,8 @@ begin
       declare
          result: String := Output;
       begin
+         Put(result);
          null;
       end;
-      Put(result);
    end;
 end Adahw;

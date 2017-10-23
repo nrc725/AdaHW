@@ -10,15 +10,17 @@ RV NO_DIRECT_BOOLEAN_OPERATORS
 RV NO_FLOATING_POINT
 RV NO_IO
 RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 RV SPARK_05
 
-U adahw%b		adahw.adb		aa0c616b NE OO SU
+U adahw%b		adahw.adb		16c96cdc NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W system.img_real%s	s-imgrea.adb		s-imgrea.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
@@ -34,7 +36,7 @@ D a-textio.ads		20170516105954 386df5d4 ada.text_io%s
 D a-tiflio.ads		20170516105948 56fbda09 ada.text_io.float_io%s
 D a-tiinio.ads		20170516105950 aa04e5d6 ada.text_io.integer_io%s
 D a-unccon.ads		20170516105954 31484697 ada.unchecked_conversion%s
-D adahw.adb		20171023172702 85a05abb adahw%b
+D adahw.adb		20171023173546 3965570c adahw%b
 D interfac.ads		20170516105950 5ab55268 interfaces%s
 D i-cstrea.ads		20170516105950 e53d8b8e interfaces.c_streams%s
 D system.ads		20170516105954 32a08138 system%s
@@ -59,38 +61,35 @@ X 4 a-inteio.ads
 18K13*Integer_Text_IO[10|46] 12|9w10 9r35 10r9 24r14 25r14 26r14 27r14
 X 8 a-textio.ads
 49K13*Text_IO 471e16 12|8w10 8r27
-166U14*New_Line 12|42s10
-242U14*Put 12|126s7 127s7
+242U14*Put 12|123s10
 X 10 a-tiinio.ads
-56U14*Get 12|24s30[4|18] 25s30[4|18] 26s30[4|18] 27s30[4|18] 120s4[4|18]
-66U14*Put 12|38s9[4|18] 39s10[4|18] 40s10[4|18] 41s10[4|18]
+56U14*Get 12|24s30[4|18] 25s30[4|18] 26s30[4|18] 27s30[4|18] 114s4[4|18]
 X 12 adahw.adb
-12U11*Adahw 12b11 129l5 129t10
-13i4 pos1total{integer} 45m10 45r23 77r10 80r36
-13i15 neg1total{integer} 82r10 85r38
-13i26 pos1sick{integer} 48m13 48r25 78r26 80r27
-13i36 neg1health{integer} 54m12 54r26 83r26 85r27
-13i48 pos2total{integer} 59m10 59r23 87r10 90r36
-13i59 neg2total{integer} 92r10 95r38
-13i70 pos2sick{integer} 62m13 62r25 88r26 90r27
-13i80 neg2health{integer} 68m12 68r26 93r26 95r27
-14A9 patientRecords(integer)<integer><integer> 19r39 19r62 33r38 122r17
+12U11*Adahw 12b11 127l5 127t10
+13i4 pos1total{integer} 40m10 40r23 72r10 75r36
+13i15 neg1total{integer} 77r10 80r38
+13i26 pos1sick{integer} 43m13 43r25 73r26 75r27
+13i36 neg1health{integer} 49m12 49r26 78r26 80r27
+13i48 pos2total{integer} 54m10 54r23 82r10 85r36
+13i59 neg2total{integer} 87r10 90r38
+13i70 pos2sick{integer} 57m13 57r25 83r26 85r27
+13i80 neg2health{integer} 63m12 63r26 88r26 90r27
+14A9 patientRecords(integer)<integer><integer> 19r39 19r62 33r38 116r17
 15i4 i{integer} 22m7 23r13 24r42 25r42 26r42 27r42 28m10 28r15 36r13 37m10
-. 37r15 38r21 39r22 40r22 41r22 43r18 46r21 52r21 57r18 60r21 66r21
-15i7 numberofpatients{integer} 23r18 120m8 122r36
-16f4 test1pp{float} 78m9 80m10 102r7 103r52 106r10 107r52 111r52
-16f13 test1np{float} 83m9 85m10 102r29 104r24 106r32 108r24 112r24
-16f22 test2pp{float} 88m9 90m10 102r17 104r71 106r20 108r71 112r71
-16f31 test2np{float} 93m9 95m10 102r39 105r48 106r42 109r48 113r48
-17a4 results{string} 103m10 107m10 111m10 115r11 127r11
-18e4 cr{character} 103r63 104r35 105r12 105r59 107r63 108r35 109r12 109r59
-. 111r63 112r35 113r12 113r59
-19V13 GetInput{14A9} 19b13 19=23 31l8 31t16 124s18
+. 37r15 38r18 41r21 47r21 52r18 55r21 61r21
+15i7 numberofpatients{integer} 23r18 114m8 116r36
+16f4 test1pp{float} 73m9 75m10 97r7 98r48 101r10 102r48 106r48
+16f13 test1np{float} 78m9 80m10 97r29 99r24 101r32 103r24 107r24
+16f22 test2pp{float} 83m9 85m10 97r17 99r71 101r20 103r71 107r71
+16f31 test2np{float} 88m9 90m10 97r39 100r48 101r42 104r48 108r48
+18e4 cr{character} 98r59 99r35 100r12 100r59 102r59 103r35 104r12 104r59
+. 106r59 107r35 108r12 108r59
+19V13 GetInput{14A9} 19b13 19=23 31l8 31t16 118s18
 19a23 records{14A9} 24m34 24r34 25m34 25r34 26m34 26r34 27m34 27r34 30r14
-33U14 CalcTotals 33b14 33>26 72l8 72t18 124s7
-33a26 records{14A9} 38r13 39r14 40r14 41r14 43r10 46r13 52r13 57r10 60r13
-. 66r13
-74U14 CalcProb 74b14 97l8 97t16 125s7
-99V13 Output{string} 99b13 116l8 116t14 126s11
-122a7 records{14A9} 124m27 124r27
+33U14 CalcTotals 33b14 33>26 67l8 67t18 118s7
+33a26 records{14A9} 38r10 41r13 47r13 52r10 55r13 61r13
+69U14 CalcProb 69b14 92l8 92t16 119s7
+94V13 Output{string} 94b13 110l8 110t14 121s28
+116a7 records{14A9} 118m27 118r27
+121a10 result{string} 123r14
 
