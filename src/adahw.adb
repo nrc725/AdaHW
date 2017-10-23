@@ -35,11 +35,6 @@ procedure Adahw is
    begin
       while i > 1 loop
          i := i - 1;
-        Put(records(i, 1));
-         Put(records(i, 2));
-         Put(records(i, 3));
-         Put(records(i, 4));
-         New_Line(1);
       if records(i, 3) = 1 then
          --Increase Positive test totals
          pos1total := pos1total + 1;
