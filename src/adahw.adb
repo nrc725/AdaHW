@@ -63,31 +63,33 @@ procedure Adahw is
            neg2health := neg2health + 1;
          end if;
          end if;
-     end loop;
+      end loop;
+      neg1total := numberofpatients - pos1total;
+      neg2total := numberofpatients - pos2total;
    end CalcTotals;
 
    procedure CalcProb is
       --Function to calculate and output probabilities.
    begin
       if pos1total = 0 then
-        test1pp := Float(pos1sick);
+         test1pp := Float(pos1sick);
       else
-         test1pp := Float(pos1sick/pos1total);
+         test1pp := Float(pos1sick)/Float(pos1total);
       end if;
       if neg1total = 0 then
         test1np := Float(neg1health);
       else
-         test1np := Float(neg1health/neg1total);
+         test1np := Float(neg1health)/Float(neg1total);
          end if;
       if pos2total = 0 then
         test2pp := Float(pos2sick);
       else
-         test2pp := Float(pos2sick/pos2total);
+         test2pp := Float(pos2sick)/Float(pos2total);
          end if;
       if neg2total = 0 then
         test2np := Float(neg2health);
       else
-         test2np := Float(neg2health/neg2total);
+         test2np := Float(neg2health)/Float(neg2total);
          end if;
    end CalcProb;
 
@@ -95,17 +97,17 @@ procedure Adahw is
       --Outputs
    begin
    if test1pp > test2pp and test1np > test2np then
-         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
-           Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
-           cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Test 1 is better.";
+         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & " P(D | Pos2) = " &
+           Float'Image(test2pp) & cr & " P(H | Neg1) = " & Float'Image(test1np) &
+           cr & " P(H | Neg2) = " & Float'Image(test2np) & cr & " Test 1 is better.";
    elsif test1pp < test2pp and test1np < test2np then
-         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
-           Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
-           cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Test 2 is better.";
+         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & " P(D | Pos2) = " &
+           Float'Image(test2pp) & cr & " P(H | Neg1) = " & Float'Image(test1np) &
+           cr & " P(H | Neg2) = " & Float'Image(test2np) & cr & " Test 2 is better.";
    else
-         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & "P(D | Pos2) = " &
-           Float'Image(test1np) & cr & "P(H | Neg1) = " & Float'Image(test2pp) &
-           cr & "P(H | Neg2) = " & Float'Image(test2np) & cr & "Neither test is better.";
+         return "P(D | Pos1) = " & Float'Image(test1pp) & cr & " P(D | Pos2) = " &
+           Float'Image(test2pp) & cr & " P(H | Neg1) = " & Float'Image(test1np) &
+           cr & " P(H | Neg2) = " & Float'Image(test2np) & cr & " Neither test is better.";
    end if;
    end Output;
 
